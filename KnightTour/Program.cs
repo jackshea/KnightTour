@@ -8,16 +8,16 @@ namespace KnightTour
         {
             var solver = new KnightTourSolver();
 
-            //for (int k = 44; k < 100; k++)
+            //for (int k = 5; k <= 71; k++)
             {
                 int n = 32;
                 solver.Solve(n);
-
                 Console.Clear();
                 Console.WriteLine($"n={n}");
                 solver.Print();
                 Console.WriteLine();
             }
+            //new Export(5).Print();
 
             Console.ReadLine();
         }
