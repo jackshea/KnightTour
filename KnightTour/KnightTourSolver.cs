@@ -10,11 +10,13 @@ namespace KnightTour
         private int[] dirY = { 1, -1, 2, -2, 2, -2, 1, -1 };
         private int[,] board;
         private int n;
+        private IslandSolver islandSolver;
 
         public int[,] Solve(int n)
         {
             board = new int[n, n];
             this.n = n;
+            islandSolver = new IslandSolver();
             DFS(0, 0, 1);
             return board;
         }
@@ -40,6 +42,17 @@ namespace KnightTour
 
             if (board[x, y] != 0)
             {
+                return false;
+            }
+
+            islandSolver.SetBoard(board, n);
+            if (islandSolver.ExistIsland(x, y))
+            {
+#if ShowStep
+                Console.SetCursorPosition(0, 0);
+                Print();
+                Console.WriteLine($"存在孤岛 ({x},{y})=0\t\t\t");
+#endif
                 return false;
             }
 
@@ -131,6 +144,7 @@ namespace KnightTour
 
             return ans;
         }
+
     }
 
     public struct ExportInfo

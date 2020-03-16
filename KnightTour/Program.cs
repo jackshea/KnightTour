@@ -8,9 +8,9 @@ namespace KnightTour
         {
             var solver = new KnightTourSolver();
 
-            //for (int k = 42; k < 100; k++)
+            //for (int k = 44; k < 100; k++)
             {
-                int n = 40;
+                int n = 32;
                 solver.Solve(n);
 
                 Console.Clear();
